@@ -26,7 +26,7 @@ node('BuildSlave') {
       allowMissing: false,
       alwaysLinkToLastBuild: false,
       keepAll: true,
-      reportDir: 'build/reports/test/test',
+      reportDir: 'build/reports/tests',
       reportFiles: 'index.html',
       reportName: "Unit Test Report"
     ])
