@@ -74,7 +74,7 @@ public class JLead {
      *            品質レベルを指定します。
      * @param description
      *            画像下部に表示するコメントを指定します。 NULL の場合表示されません。
-     * @result 
+     * @return 
      *          ステータスコードを返します。
      * @throws IllegalArgumentException
      *            無効な値を指定した場合にスローされます。

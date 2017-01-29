@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
 compileJava {
     options.bootClasspath = "$System.env.JAVA_HOME/jre/lib/rt.jar"
