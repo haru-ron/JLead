@@ -12,3 +12,4 @@
 .settings/org.eclipse.jdt.core.prefs
 bin/.gitignore
 bin/altezza.jpg
+.gradle/

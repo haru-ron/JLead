@@ -29,6 +29,12 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  * @author Haruo TAKEDA
  */
 public class JLead {
+    /** エラーがない状態を示すフィールドの値です。 */
+    public static final int     NO_ERROR = 0;
+
+    /** エラーがある状態を示すフィールドの値です。 */
+    public static final int     ERROR = 1;
+
     /** 最高画質を示すフィールドの値です。 */
     public static final float EXCELENT = 1.0f;
 
@@ -68,6 +74,8 @@ public class JLead {
      *            品質レベルを指定します。
      * @param description
      *            画像下部に表示するコメントを指定します。 NULL の場合表示されません。
+     * @result 
+     *          ステータスコードを返します。
      * @throws IllegalArgumentException
      *            無効な値を指定した場合にスローされます。
      * @throws JLeadException
@@ -76,7 +84,7 @@ public class JLead {
      *             指定したファイルがJPEGファイルではない場合や、フォーマット異常の時。<br>
      *             ファイル出力時に入出力エラーが発生した場合。
      */
-    public static void createThumbnails(String inputFile, String outputFile,
+    public static int createThumbnails(String inputFile, String outputFile,
             int newHeight, int scale, float quality, String description)
             throws IllegalArgumentException, JLeadException {
         BufferedImage bufferedImage;
@@ -130,33 +138,7 @@ public class JLead {
         } catch (Exception e) {
             throw new JLeadException(e.getMessage());
         }
-    }
-
-    /**
-     * サムネイルファイルを作成します。 指定したJPEGファイルを、指定したファイル名でサムネイルファイルを作成します。
-     *
-     * @param inputFile
-     *            JPEGファイル名をフルパスで指定します。
-     * @param outputFile
-     *            出力先のサムネイルファイル名をフルパスで指定します。
-     * @param newHeight
-     *            作成するサムネイルファイルの高さ(ピクセル数）を指定します。
-     * @param scale
-     *            サムネイルを作成する際のイメージスケーリングアルゴリズムを指定します。
-     * @param quality
-     *            品質レベルを指定します。
-     * @throws IllegalArgumentException
-     *            無効な値を指定した場合にスローされます。
-     * @throws JLeadException
-     *             以下の場合にスローされます。<br>
-     *             指定したファイルが存在しなかった場合。<br>
-     *             指定したファイルがJPEGファイルではない場合や、フォーマット異常の時。<br>
-     *             ファイル出力時に入出力エラーが発生した場合。
-     */
-    public static void createThumbnails(String inputFile, String outputFile,
-            int newHeight, int scale, float quality)
-            throws IllegalArgumentException, JLeadException {
-        createThumbnails(inputFile, outputFile, newHeight, scale, quality, null);
+        return NO_ERROR;
     }
 
     private static BufferedImage decode(String inFilename)
