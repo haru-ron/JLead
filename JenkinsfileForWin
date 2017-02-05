@@ -7,8 +7,8 @@ node('BuildSlave') {
     
     stage 'Build'
     bat 'C:\\gradle-3.0\\bin\\gradle jar'
-    archiveArtifacts 'build\\libs\\*.jar'
-    
+    archive 'build/libs/*.jar'
+
     stage 'Test'
     bat 'C:\\gradle-3.0\\bin\\gradle jacoco'
 
